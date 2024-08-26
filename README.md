@@ -1,4 +1,4 @@
-#    MERN Stack Template 📔📝🎶
+#    Xpensigium- Your Smart & Magical Expense Tracker Web App 📔📝🎶
 -  Ready-to-use Mern stack template for streamlining and enhanced performances without any redudancies while starting a new project.
 ##  **Frontend 💻**
   - Vite Config
