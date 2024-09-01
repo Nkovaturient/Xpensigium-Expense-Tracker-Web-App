@@ -23,8 +23,8 @@ export const dataObj=[
         title: 'Monthly Savings',
         caption:['Emergency Fund', 'Investments', 'Retirement'],
     },
-    {
-        title: 'Submitted your data!',
-        caption:['✅Calculated🧮'],
-    },
+    // {
+    //     title: 'Submitted data!',
+    //     caption:['✅Calculate(No Input)'],
+    // },
 ]

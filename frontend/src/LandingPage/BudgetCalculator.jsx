@@ -108,15 +108,7 @@ const BudgetCalculator = () => {
                         );
                       })}
 
-                      {currIndex === dataObj.length - 1 ? (
-                        <button
-                        disabled
-                          className="border py-2 text-white rounded mt-2"
-                          style={{ backgroundColor: "#008000" }}
-                        >
-                          Done ✅
-                        </button>
-                      ) : (
+              
                         <button
                           onClick={() => handleNext(index)}
                           className="border py-2 text-white rounded mt-2"
@@ -124,7 +116,6 @@ const BudgetCalculator = () => {
                         >
                           Next
                         </button>
-                      )}
 
                       <button
                         onClick={() => handlePrevious(index)}
@@ -163,6 +154,7 @@ const ShowData = ({ sum }) => {
   const totalExp = saving + expenditure;
 
   const netIncome = income - totalExp;
+
   return (
     <>
     <div  className="data-container w-96 mt-10">
@@ -198,17 +190,30 @@ const ShowData = ({ sum }) => {
           <hr />
           <div className="data-title flex justify-between ">
             <h2>Net Income</h2>
-            <b
-              style={{
-                padding: "8px",
-                backgroundColor: "green",
-                color: "#fff",
-                border: "2px solid gray",
-                borderRadius: "24px",
-              }}
-            >
-              💲{netIncome ? netIncome : 0}
-            </b>{" "}
+            { netIncome && netIncome > 0 
+            ? <b
+            style={{
+              padding: "9px",
+              backgroundColor: "green",
+              color: "#fff",
+              border: "2px solid gray",
+              borderRadius: "24px",
+            }}
+          >
+            💲{netIncome ? netIncome : 0}
+          </b>
+          : <b
+          style={{
+            padding: "9px",
+            backgroundColor: "red",
+            color: "#fff",
+            border: "2px solid gray",
+            borderRadius: "24px",
+          }}
+        >
+          💲{netIncome ? netIncome : 0}
+        </b>
+        }
             
           </div>
           <hr />
