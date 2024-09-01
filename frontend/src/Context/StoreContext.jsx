@@ -8,7 +8,7 @@ export const StoreContext= createContext(null);
 
 const StoreContextProvider=(props)=>{
 
-    const url=`http://localhost:6500`;
+    const url=`https://xpensigium-backend.onrender.com`; //http://localhost:6500
     const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState("");
   const[token, setToken]=useState("");
