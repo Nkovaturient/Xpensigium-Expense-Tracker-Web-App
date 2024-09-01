@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use('/api/expense', expenseRouter);
 
+//database setup
 mongoose.connect(DB_URL)
 .then(()=>{
     console.log(`Pinged to Db! Connected Successfully.`);
