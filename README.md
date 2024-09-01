@@ -1,5 +1,5 @@
 #    Xpensigium- Your Smart & Magical Expense Tracker Web App 📔📝🎶
--  Ready-to-use Mern stack template for streamlining and enhanced performances without any redudancies while starting a new project.
+-  Cast Xpensigium(Appare Vestigium) on your next expense to keep track of all your household expenses seamlessly at one go!
 ##  **Frontend 💻**
   - Vite Config
   - TailwindCSS
