@@ -1,8 +1,10 @@
 
 import axios from 'axios';
+import { signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { auth, provider } from '../firebase';
 
 export const StoreContext= createContext(null);
 
@@ -11,6 +13,7 @@ const StoreContextProvider=(props)=>{
     const url=`https://xpensigium-backend.onrender.com`; //http://localhost:6500
     const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState("");
+  const[photoUrl, setPhotoUrl]=useState('');
   const[token, setToken]=useState("");
   const[loading, setLoading]=useState(false);
   const [userData, setUserData] = useState({});
@@ -36,15 +39,54 @@ const StoreContextProvider=(props)=>{
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setToken("");
-    setUserEmail('');
-    toast.success("Logged out!", { theme: "dark" });
+  const handleGoogleSignIn=async()=>{
+
+    setLoading(true);
+    await signInWithPopup(auth, provider)
+  .then((result) => {
+    setLoading(false);
+    // const credential = provider.credentialFromResult(result);
+    // console.log("credential=", credential);
+    // const token = credential.accessToken;
+    const user = result.user;
+  const { email, displayName, photoURL, refreshToken}=user
+  
+  setUserData(user);
+  setPhotoUrl(photoURL);
+  setToken(refreshToken || token);
+ setUserEmail(email);
+
+    console.log("user=", userData);
+    toast.success("Registered Successfully!", {
+      position: "top-left",
+      theme: "dark",
+    });
+
+  }).catch((error) => {
+
+    setLoading(false);
+    toast.error(`${error.message}`, {
+      position: "top-left",
+      autoClose: 5000,
+      theme: "dark",
+    });
+  });
+  }
+
+  const handleLogout = async() => {
+    
+    await signOut(auth).then(() => {
+      setToken(localStorage.removeItem("token"));
+      setUserEmail('');
+      toast.success("Logged out!", { theme: "dark" });
     navigate("/");
     setTimeout(() => {
       window.location.reload();
-    }, 1050);
+    }, 2000);
+    }).catch((error) => {
+      toast.error(`${error.message}`, { theme: "dark" });
+    });
+    
     
   };
 
@@ -90,6 +132,7 @@ const StoreContextProvider=(props)=>{
         url,
         token,
         setUserEmail,
+        photoUrl,
         userEmail,
         setToken,
         navigate,
@@ -98,6 +141,7 @@ const StoreContextProvider=(props)=>{
         deleteExpData,
         loading,
         setLoading,
+        handleGoogleSignIn,
         handleLogout,
     }
     return(

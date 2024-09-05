@@ -7,7 +7,7 @@ import { StoreContext } from "../../Context/StoreContext";
 import Spinner from "../Spinner";
 
 const Signup = () => {
-  const { setUserData, setToken, navigate, loading, setLoading, setUserEmail } =
+  const { setUserData, handleGoogleSignIn, setToken, navigate, loading, setLoading, setUserEmail } =
     useContext(StoreContext);
 
   const [inp, setInp] = useState({
@@ -57,12 +57,25 @@ const Signup = () => {
       });
   };
 
+  
+
   return (
     <div className="signup-page">
       <div className="form_container">
-        <h2 className="text-center ">Quick Register</h2>
-        {loading ? <Spinner /> : ""}
+      {loading ? <Spinner /> : ""}
+      <div style={{textAlign: "center"}} className="g-btn">
+     <button className="google-btn" onClick={handleGoogleSignIn}>Signup with Google</button> 
+    
+   </div>
+   <br />
+  
+   <p style={{textAlign: "center", fontWeight: '300'}}>OR</p>
+   <hr />
+   <br />
+        
+       
         <form onSubmit={handleSubmit}>
+        <h2 className="text-center text-3xl "> Register</h2>
           <div>
             <label htmlFor="email">Email</label>
             <input

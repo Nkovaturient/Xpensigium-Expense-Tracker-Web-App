@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../../firebase";
 import { StoreContext } from "../../Context/StoreContext";
 import Spinner from "../Spinner";
 
 const Login = () => {
-  const { setUserData, setToken, navigate, loading, setLoading, setUserEmail } =
+  const { setUserData, handleGoogleSignIn, setToken, navigate, loading, setLoading, setUserEmail } =
     useContext(StoreContext);
 
+  
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
@@ -60,12 +60,23 @@ const Login = () => {
       });
   };
 
+
   return (
     <div className="signup-page">
-      <div className="form_container">
-        <h2 className="text-center">Login</h2>
+      <div className="form_container">  
+        
         {loading ? <Spinner /> : ""}
+        <div style={{textAlign: "center"}} className="g-btn">
+     <button className="google-btn" onClick={handleGoogleSignIn}> Login with Google</button> 
+    
+   </div>
+   <br />
+  
+   <p style={{textAlign: "center", fontWeight: '300'}}>OR</p>
+   <hr />
+   <br />
         <form onSubmit={handleFirebaseLogin}>
+        <h2 className="text-center text-3xl">Login</h2>
           <div>
             <label htmlFor="email">Email</label>
             <input

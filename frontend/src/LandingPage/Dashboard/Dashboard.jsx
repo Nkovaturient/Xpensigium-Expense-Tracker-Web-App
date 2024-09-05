@@ -2,23 +2,18 @@ import React, { useContext } from 'react'
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCalculator,
-  faHistory,
-  faHome,
   faSignOut,
   faUserCheck,
   faUserShield,
   faWallet,
 } from "@fortawesome/free-solid-svg-icons";
-import { toast } from "react-toastify";
 import { StoreContext } from '../../Context/StoreContext';
 
 const Dashboard = () => {
-  const {userData, token, handleLogout, userEmail}=useContext(StoreContext);
+  const {userData, photoUrl, token, handleLogout, userEmail}=useContext(StoreContext);
 
   const {email}=userData;
 
- 
 
   return (
     <>
@@ -28,7 +23,7 @@ const Dashboard = () => {
       <div className="dashboard-item mt-4 flex flex-col gap-24 justify-content text-center" style={{margin: '0 auto'}}>
       <div className="sidebar-user-handle mt-40">
         <Link to="/">
-          <img src="user.webp" alt="user-img" className="user" />
+          <img src={ `user.webp`} alt="user-img" className="user" />
         </Link>
         <p className=' text-2xl'>
         { email 
