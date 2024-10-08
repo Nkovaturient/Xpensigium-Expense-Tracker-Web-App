@@ -1,7 +1,8 @@
 #    Xpensigium- Your Smart & Magical Expense Tracker Web App 📔📝🎶
 -  Cast Xpensigium(Appare Vestigium) 🌟🔮 on your next expense to keep track of all your household expenses seamlessly at one go!
--  ❇**Status**: Live🍀
--  🎇Link: https://xpensigium.onrender.com 🎐
+  
+##  ❇**Status**: Live🍀
+-  🎇Link: [Xpensigium](https://xpensigium.onrender.com) 🎐💸💹
   
 ![xpense1](https://github.com/user-attachments/assets/89df65fe-2667-45b9-b121-37542b89a92b)
 
@@ -11,7 +12,7 @@
  ![xp2](https://github.com/user-attachments/assets/e22f4ecd-1218-4b16-84c4-b2ebda09f9cd) 
 
   
-##  **Frontend 💻** (react-vite)
+##  **Frontend 💻**
 
 ![xp3](https://github.com/user-attachments/assets/957c6e8c-60b3-4901-bdb7-02fb7b8e7423)
 
