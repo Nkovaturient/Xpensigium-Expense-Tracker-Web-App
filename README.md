@@ -12,7 +12,7 @@
  ![xp2](https://github.com/user-attachments/assets/e22f4ecd-1218-4b16-84c4-b2ebda09f9cd) 
 
   
-##  **Frontend 💻**
+##  **Frontend**
 
 ![xp3](https://github.com/user-attachments/assets/957c6e8c-60b3-4901-bdb7-02fb7b8e7423)
 
